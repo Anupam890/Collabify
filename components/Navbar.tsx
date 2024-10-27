@@ -1,25 +1,32 @@
-import { useUser, SignedOut, SignIn, SignedIn } from "@clerk/nextjs";
+"use client";
+import {
+  useUser,
+  SignedOut,
+  SignInButton,
+  SignIn,
+  UserButton,
+  SignedIn,
+} from "@clerk/nextjs";
 import React from "react";
 
 const Navbar = () => {
   const { user } = useUser();
   return (
     <>
-      <nav className="h-40 flex items-center justify-between px-4">
+      <nav className="h-20 flex items-center justify-between px-4">
         {user && (
           <div>
-            <h1>Welcome, {user.fullName}</h1>
+            <h1> {user.fullName}</h1>
           </div>
         )}
 
         <div>
           <SignedOut>
-            <SignIn />
+            <SignInButton />
           </SignedOut>
+
           <SignedIn>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-              Sign Out
-            </button>
+            <UserButton />
           </SignedIn>
         </div>
       </nav>
