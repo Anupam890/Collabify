@@ -13,7 +13,7 @@ const Navbar = () => {
   const { user } = useUser();
   return (
     <>
-      <nav className="h-20 flex items-center justify-between px-4">
+      <nav className="h-20 flex items-center justify-between px-4 bg-white">
         {user && (
           <div>
             <h1> {user.fullName}</h1>
